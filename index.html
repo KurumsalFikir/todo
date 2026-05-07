@@ -16,23 +16,155 @@
       padding: 48px 16px;
     }
 
-    .app {
-      width: 100%;
-      max-width: 480px;
+    .page { width: 100%; max-width: 420px; }
+
+    /* ── Auth ── */
+    .auth-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
     }
 
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
+    .auth-card h2 {
+      font-size: 1.5rem;
       color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .auth-card .sub {
+      font-size: .85rem;
+      color: #94a3b8;
       margin-bottom: 24px;
     }
 
-    .input-row {
+    .field { margin-bottom: 14px; }
+
+    .field label {
+      display: block;
+      font-size: .82rem;
+      color: #475569;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 11px 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: .97rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .field input:focus { border-color: #6366f1; }
+
+    .otp-row {
       display: flex;
       gap: 8px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .otp-row input {
+      width: 48px; height: 58px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .otp-row input:focus { border-color: #6366f1; }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #6366f1;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+      margin-top: 6px;
+    }
+
+    .btn:hover { background: #4f46e5; }
+    .btn:disabled { background: #a5b4fc; cursor: not-allowed; }
+
+    .btn-ghost {
+      width: 100%;
+      padding: 10px;
+      background: none;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: .9rem;
+      color: #64748b;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-ghost:hover { border-color: #6366f1; color: #6366f1; }
+
+    .err {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: .85rem;
+      margin-bottom: 14px;
+      display: none;
+    }
+
+    .resend {
+      text-align: center;
+      font-size: .82rem;
+      color: #94a3b8;
+      margin-top: 14px;
+    }
+
+    .resend button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #6366f1;
+      font-size: .82rem;
+      text-decoration: underline;
+    }
+
+    /* ── Todo ── */
+    .app { width: 100%; max-width: 480px; }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 24px;
     }
+
+    .app-header h1 { font-size: 2rem; font-weight: 700; color: #1a1a2e; }
+
+    .logout-btn {
+      background: none;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: .82rem;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .logout-btn:hover { border-color: #ef4444; color: #ef4444; }
+
+    .input-row { display: flex; gap: 8px; margin-bottom: 24px; }
 
     .input-row input {
       flex: 1;
@@ -61,11 +193,7 @@
     .input-row button:hover { background: #4f46e5; }
     .input-row button:disabled { background: #a5b4fc; cursor: not-allowed; }
 
-    .filters {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
+    .filters { display: flex; gap: 6px; margin-bottom: 16px; }
 
     .filters button {
       padding: 6px 14px;
@@ -78,11 +206,7 @@
       transition: all .15s;
     }
 
-    .filters button.active {
-      background: #6366f1;
-      border-color: #6366f1;
-      color: #fff;
-    }
+    .filters button.active { background: #6366f1; border-color: #6366f1; color: #fff; }
 
     .list { list-style: none; }
 
@@ -117,10 +241,7 @@
       word-break: break-word;
     }
 
-    .item.done span {
-      text-decoration: line-through;
-      color: #94a3b8;
-    }
+    .item.done span { text-decoration: line-through; color: #94a3b8; }
 
     .item .del {
       background: none;
@@ -156,39 +277,68 @@
 
     .footer button:hover { color: #ef4444; }
 
-    .empty {
-      text-align: center;
-      color: #cbd5e1;
-      padding: 40px 0;
-      font-size: .95rem;
-    }
+    .empty { text-align: center; color: #cbd5e1; padding: 40px 0; font-size: .95rem; }
+    .loading { text-align: center; color: #cbd5e1; padding: 40px 0; font-size: .95rem; }
 
-    .error-bar {
-      background: #fef2f2;
-      color: #dc2626;
-      border: 1px solid #fecaca;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: .85rem;
-      margin-bottom: 16px;
-      display: none;
-    }
-
-    .loading {
-      text-align: center;
-      color: #94a3b8;
-      padding: 40px 0;
-      font-size: .95rem;
-    }
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
-  <div class="app">
-    <h1>Yapılacaklar</h1>
-    <div class="error-bar" id="errorBar"></div>
+
+  <!-- Kayıt / Giriş -->
+  <div class="page" id="authPage">
+    <div class="auth-card">
+      <div id="errAuth" class="err"></div>
+
+      <!-- Giriş -->
+      <div id="viewLogin">
+        <h2>Hoş geldiniz</h2>
+        <p class="sub">Devam etmek için giriş yapın</p>
+        <div class="field"><label>E-posta</label><input id="loginEmail" type="email" placeholder="ornek@mail.com"></div>
+        <div class="field"><label>Şifre</label><input id="loginPass" type="password" placeholder="••••••"></div>
+        <button class="btn" id="loginBtn">Giriş Yap</button>
+        <button class="btn-ghost" id="goRegister">Hesabım yok, kayıt ol</button>
+      </div>
+
+      <!-- Kayıt -->
+      <div id="viewRegister" class="hidden">
+        <h2>Hesap oluştur</h2>
+        <p class="sub">E-postanıza doğrulama kodu gönderilecek</p>
+        <div class="field"><label>E-posta</label><input id="regEmail" type="email" placeholder="ornek@mail.com"></div>
+        <div class="field"><label>Şifre</label><input id="regPass" type="password" placeholder="En az 6 karakter"></div>
+        <div class="field"><label>Şifre tekrar</label><input id="regPass2" type="password" placeholder="••••••"></div>
+        <button class="btn" id="registerBtn">Kayıt Ol</button>
+        <button class="btn-ghost" id="goLogin">Zaten hesabım var, giriş yap</button>
+      </div>
+
+      <!-- OTP -->
+      <div id="viewOtp" class="hidden">
+        <h2>E-postanızı doğrulayın</h2>
+        <p class="sub" id="otpSubtext">E-postanıza gönderilen 6 haneli kodu girin</p>
+        <div class="otp-row">
+          <input class="otp" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input class="otp" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input class="otp" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input class="otp" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input class="otp" maxlength="1" inputmode="numeric" pattern="[0-9]">
+          <input class="otp" maxlength="1" inputmode="numeric" pattern="[0-9]">
+        </div>
+        <button class="btn" id="verifyBtn">Doğrula</button>
+        <p class="resend">Kod gelmedi mi? <button id="resendBtn">Tekrar gönder</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Todo uygulaması -->
+  <div class="app hidden" id="todoApp">
+    <div class="app-header">
+      <h1>Yapılacaklar</h1>
+      <button class="logout-btn" id="logoutBtn">Çıkış</button>
+    </div>
+    <div id="errTodo" class="err"></div>
     <div class="input-row">
       <input id="newTask" type="text" placeholder="Yeni görev ekle..." maxlength="200">
-      <button id="addBtn" title="Ekle">+</button>
+      <button id="addBtn">+</button>
     </div>
     <div class="filters">
       <button class="active" data-filter="all">Tümü</button>
@@ -204,56 +354,201 @@
 
   <script>
     const SUPABASE_URL = 'https://tgtvpveurdxebkeihkiv.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRndHZwdmV1cmR4ZWJrZWloa2l2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxNzY3MTMsImV4cCI6MjA5Mzc1MjcxM30.TzK384wPZXbJXNbH7DpdQ9l0Wl6pheuq8LViYD579vk';
-    const BASE = `${SUPABASE_URL}/rest/v1/todos`;
-    const HEADERS = {
-      'apikey': SUPABASE_KEY,
-      'Authorization': `Bearer ${SUPABASE_KEY}`,
-      'Content-Type': 'application/json',
-    };
+    const ANON_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRndHZwdmV1cmR4ZWJrZWloa2l2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxNzY3MTMsImV4cCI6MjA5Mzc1MjcxM30.TzK384wPZXbJXNbH7DpdQ9l0Wl6pheuq8LViYD579vk';
+    const AUTH         = `${SUPABASE_URL}/auth/v1`;
+    const REST         = `${SUPABASE_URL}/rest/v1/todos`;
 
-    let tasks = [];
-    let filter = 'all';
+    let session = null;
+    let tasks   = [];
+    let filter  = 'all';
+    let pendingEmail = '';
 
-    const listEl  = document.getElementById('list');
-    const input   = document.getElementById('newTask');
-    const countEl = document.getElementById('count');
-    const addBtn  = document.getElementById('addBtn');
-    const errBar  = document.getElementById('errorBar');
-
-    function showError(msg) {
-      errBar.textContent = msg;
-      errBar.style.display = 'block';
-      setTimeout(() => { errBar.style.display = 'none'; }, 4000);
+    /* ── helpers ── */
+    function authHeaders() {
+      return {
+        'apikey': ANON_KEY,
+        'Authorization': `Bearer ${session.access_token}`,
+        'Content-Type': 'application/json',
+      };
     }
 
-    async function api(method, url, body) {
+    async function authReq(method, path, body) {
+      const res = await fetch(`${AUTH}${path}`, {
+        method,
+        headers: { 'apikey': ANON_KEY, 'Content-Type': 'application/json' },
+        body: body ? JSON.stringify(body) : undefined,
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.msg || data.error_description || data.message || `HTTP ${res.status}`);
+      return data;
+    }
+
+    async function dbReq(method, url, body) {
       const res = await fetch(url, {
         method,
-        headers: { ...HEADERS, ...(method !== 'GET' ? { 'Prefer': 'return=representation' } : {}) },
+        headers: { ...authHeaders(), ...(method !== 'GET' ? { 'Prefer': 'return=representation' } : {}) },
         body: body ? JSON.stringify(body) : undefined,
       });
       if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.message || `HTTP ${res.status}`);
+        const e = await res.json().catch(() => ({}));
+        throw new Error(e.message || `HTTP ${res.status}`);
       }
       const text = await res.text();
       return text ? JSON.parse(text) : [];
     }
 
-    function escHtml(str) {
-      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    function showErr(id, msg) {
+      const el = document.getElementById(id);
+      el.textContent = msg;
+      el.style.display = 'block';
+      setTimeout(() => { el.style.display = 'none'; }, 5000);
     }
 
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    /* ── views ── */
+    function show(viewId) {
+      ['viewLogin','viewRegister','viewOtp'].forEach(id =>
+        document.getElementById(id).classList.toggle('hidden', id !== viewId));
+      document.getElementById('errAuth').style.display = 'none';
+    }
+
+    function showApp() {
+      document.getElementById('authPage').classList.add('hidden');
+      document.getElementById('todoApp').classList.remove('hidden');
+      loadTasks();
+    }
+
+    /* ── session ── */
+    function saveSession(s) {
+      session = s;
+      localStorage.setItem('sb_session', JSON.stringify(s));
+    }
+
+    function loadSession() {
+      try { return JSON.parse(localStorage.getItem('sb_session')); } catch { return null; }
+    }
+
+    async function refreshSession(s) {
+      try {
+        const data = await authReq('POST', '/token?grant_type=refresh_token', { refresh_token: s.refresh_token });
+        saveSession(data);
+        return true;
+      } catch { return false; }
+    }
+
+    /* ── auth handlers ── */
+    document.getElementById('goRegister').onclick = () => show('viewRegister');
+    document.getElementById('goLogin').onclick    = () => show('viewLogin');
+
+    document.getElementById('loginBtn').onclick = async () => {
+      const email = document.getElementById('loginEmail').value.trim();
+      const pass  = document.getElementById('loginPass').value;
+      if (!email || !pass) return showErr('errAuth', 'E-posta ve şifre gerekli.');
+      document.getElementById('loginBtn').disabled = true;
+      try {
+        const data = await authReq('POST', '/token?grant_type=password', { email, password: pass });
+        saveSession(data);
+        showApp();
+      } catch (e) {
+        showErr('errAuth', e.message);
+      } finally {
+        document.getElementById('loginBtn').disabled = false;
+      }
+    };
+
+    document.getElementById('registerBtn').onclick = async () => {
+      const email = document.getElementById('regEmail').value.trim();
+      const pass  = document.getElementById('regPass').value;
+      const pass2 = document.getElementById('regPass2').value;
+      if (!email || !pass) return showErr('errAuth', 'Tüm alanları doldurun.');
+      if (pass !== pass2)  return showErr('errAuth', 'Şifreler eşleşmiyor.');
+      if (pass.length < 6) return showErr('errAuth', 'Şifre en az 6 karakter olmalı.');
+      document.getElementById('registerBtn').disabled = true;
+      try {
+        await authReq('POST', '/signup', { email, password: pass });
+        pendingEmail = email;
+        document.getElementById('otpSubtext').textContent = `${email} adresine gönderilen 6 haneli kodu girin`;
+        show('viewOtp');
+        document.querySelectorAll('.otp')[0].focus();
+      } catch (e) {
+        showErr('errAuth', e.message);
+      } finally {
+        document.getElementById('registerBtn').disabled = false;
+      }
+    };
+
+    document.getElementById('verifyBtn').onclick = verifyOtp;
+
+    document.getElementById('resendBtn').onclick = async () => {
+      try {
+        await authReq('POST', '/resend', { type: 'signup', email: pendingEmail });
+        document.getElementById('resendBtn').textContent = 'Gönderildi!';
+        setTimeout(() => { document.getElementById('resendBtn').textContent = 'Tekrar gönder'; }, 3000);
+      } catch (e) {
+        showErr('errAuth', e.message);
+      }
+    };
+
+    async function verifyOtp() {
+      const token = [...document.querySelectorAll('.otp')].map(i => i.value).join('');
+      if (token.length !== 6) return showErr('errAuth', '6 haneli kodu eksiksiz girin.');
+      document.getElementById('verifyBtn').disabled = true;
+      try {
+        const data = await authReq('POST', '/verify', { type: 'signup', email: pendingEmail, token });
+        saveSession(data);
+        showApp();
+      } catch (e) {
+        showErr('errAuth', 'Kod hatalı veya süresi dolmuş.');
+        document.querySelectorAll('.otp').forEach(i => { i.value = ''; });
+        document.querySelectorAll('.otp')[0].focus();
+      } finally {
+        document.getElementById('verifyBtn').disabled = false;
+      }
+    }
+
+    /* OTP kutuları: otomatik ilerleme */
+    document.querySelectorAll('.otp').forEach((inp, i, all) => {
+      inp.addEventListener('input', () => {
+        inp.value = inp.value.replace(/\D/g, '');
+        if (inp.value && i < all.length - 1) all[i + 1].focus();
+        if (i === all.length - 1 && inp.value) verifyOtp();
+      });
+      inp.addEventListener('keydown', e => {
+        if (e.key === 'Backspace' && !inp.value && i > 0) all[i - 1].focus();
+      });
+      inp.addEventListener('paste', e => {
+        e.preventDefault();
+        const digits = (e.clipboardData.getData('text').replace(/\D/g,'')).slice(0,6).split('');
+        digits.forEach((d, j) => { if (all[j]) all[j].value = d; });
+        const next = Math.min(digits.length, all.length - 1);
+        all[next].focus();
+        if (digits.length === 6) verifyOtp();
+      });
+    });
+
+    /* ── logout ── */
+    document.getElementById('logoutBtn').onclick = async () => {
+      try { await authReq('POST', '/logout'); } catch {}
+      session = null;
+      localStorage.removeItem('sb_session');
+      tasks = [];
+      document.getElementById('todoApp').classList.add('hidden');
+      document.getElementById('authPage').classList.remove('hidden');
+      show('viewLogin');
+    };
+
+    /* ── todo ── */
     function render() {
+      const listEl  = document.getElementById('list');
+      const countEl = document.getElementById('count');
       const visible = tasks.filter(t =>
         filter === 'all'    ? true :
-        filter === 'active' ? !t.done :
-                               t.done
+        filter === 'active' ? !t.done : t.done
       );
-
       listEl.innerHTML = '';
-
       if (!visible.length) {
         listEl.innerHTML = '<li class="empty">Görev yok</li>';
       } else {
@@ -268,64 +563,62 @@
           listEl.appendChild(li);
         });
       }
-
-      const remaining = tasks.filter(t => !t.done).length;
-      countEl.textContent = `${remaining} görev kaldı`;
+      countEl.textContent = `${tasks.filter(t => !t.done).length} görev kaldı`;
     }
 
     async function loadTasks() {
       try {
-        tasks = await api('GET', `${BASE}?order=created_at.desc`);
+        tasks = await dbReq('GET', `${REST}?order=created_at.desc`);
         render();
       } catch (e) {
-        listEl.innerHTML = '';
-        showError('Görevler yüklenemedi: ' + e.message);
+        showErr('errTodo', 'Görevler yüklenemedi: ' + e.message);
       }
     }
 
+    document.getElementById('addBtn').onclick = addTask;
+    document.getElementById('newTask').addEventListener('keydown', e => { if (e.key === 'Enter') addTask(); });
+
     async function addTask() {
-      const text = input.value.trim();
+      const input = document.getElementById('newTask');
+      const text  = input.value.trim();
       if (!text) return;
-      addBtn.disabled = true;
+      document.getElementById('addBtn').disabled = true;
       try {
-        const [created] = await api('POST', BASE, { text, done: false });
+        const [created] = await dbReq('POST', REST, { text, done: false, user_id: session.user.id });
         tasks.unshift(created);
         input.value = '';
         render();
       } catch (e) {
-        showError('Görev eklenemedi: ' + e.message);
+        showErr('errTodo', 'Eklenemedi: ' + e.message);
       } finally {
-        addBtn.disabled = false;
+        document.getElementById('addBtn').disabled = false;
       }
     }
 
-    addBtn.addEventListener('click', addTask);
-    input.addEventListener('keydown', e => { if (e.key === 'Enter') addTask(); });
-
-    listEl.addEventListener('change', async e => {
+    document.getElementById('list').addEventListener('change', async e => {
       if (e.target.type !== 'checkbox') return;
       const id = +e.target.dataset.id;
       const done = e.target.checked;
       try {
-        await api('PATCH', `${BASE}?id=eq.${id}`, { done });
+        await dbReq('PATCH', `${REST}?id=eq.${id}`, { done });
         const t = tasks.find(t => t.id === id);
         if (t) { t.done = done; render(); }
       } catch (e) {
-        showError('Güncellenemedi: ' + e.message);
-        await loadTasks();
+        showErr('errTodo', 'Güncellenemedi: ' + e.message);
+        loadTasks();
       }
     });
 
-    listEl.addEventListener('click', async e => {
+    document.getElementById('list').addEventListener('click', async e => {
       const btn = e.target.closest('.del');
       if (!btn) return;
       const id = +btn.dataset.id;
       try {
-        await api('DELETE', `${BASE}?id=eq.${id}`);
+        await dbReq('DELETE', `${REST}?id=eq.${id}`);
         tasks = tasks.filter(t => t.id !== id);
         render();
       } catch (e) {
-        showError('Silinemedi: ' + e.message);
+        showErr('errTodo', 'Silinemedi: ' + e.message);
       }
     });
 
@@ -340,15 +633,23 @@
 
     document.getElementById('clearDone').addEventListener('click', async () => {
       try {
-        await api('DELETE', `${BASE}?done=eq.true`);
+        await dbReq('DELETE', `${REST}?done=eq.true&user_id=eq.${session.user.id}`);
         tasks = tasks.filter(t => !t.done);
         render();
       } catch (e) {
-        showError('Silinemedi: ' + e.message);
+        showErr('errTodo', 'Silinemedi: ' + e.message);
       }
     });
 
-    loadTasks();
+    /* ── boot ── */
+    (async () => {
+      const saved = loadSession();
+      if (saved) {
+        const ok = await refreshSession(saved);
+        if (ok) { showApp(); return; }
+      }
+      show('viewLogin');
+    })();
   </script>
 </body>
 </html>
